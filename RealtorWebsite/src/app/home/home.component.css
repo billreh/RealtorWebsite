@@ -1,0 +1,30 @@
+.about-section {
+    height: 100%;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    background: #eee;
+}
+
+.img-with-text {
+	position: relative;
+}
+
+.text-overlay {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	width: 100%;
+	color: white;
+	font: 24px bold;
+	background: rgba(0,0,0,0.7);
+	padding: 10px;
+}
+
+.text-overlay a {
+	color: white;
+}

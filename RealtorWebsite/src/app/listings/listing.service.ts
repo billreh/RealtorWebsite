@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import {Http, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {ListingListDto} from './listing-list-dto';
+
+@Injectable()
+export class ListingService {
+
+  constructor(private http: Http) { }
+
+  getListingList(): Observable<Array<ListingListDto>> {
+    let url = 'http://localhost:8080/Realtor/rest/listings';
+
+    return this.http.get(url, {method: 'Get'}).map( (res) => res.json())
+        .map( (listings: Array<any>) => {
+          let result: Array<ListingListDto> = [];
+          if (listings) {
+            listings.forEach( (data) => result.push(ListingListDto.fromJson(data)));
+          }
+          return result;
+        }).catch(this.handleError);
+  }
+
+  handleError(error: Response): Observable<any> {
+    return Observable.throw(error.json()).error || 'Server not reachable';
+  }
+}

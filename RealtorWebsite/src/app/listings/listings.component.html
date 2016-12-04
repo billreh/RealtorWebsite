@@ -1,0 +1,156 @@
+<p-dataGrid [value]="listings"
+        [paginator]="true"
+        [rows]="9">
+    <template let-listing>
+   
+       	 <div style="padding:3px" class="ui-g-12 ui-md-4">
+			<p-panel header="{{listing.street}} {{listing.city}} {{listing.zipCode}}">
+				<div style="text-align: center"><strong>${{listing.price}}</strong></div>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">{{listing.houseType}}</div>
+				<div style="text-align: center">
+					<strong>{{listing.bedrooms}}</strong> bd | 
+					<strong>{{listing.bathrooms}}</strong> ba | 
+					<strong>{{listing.squareFeet}}</strong> sq ft
+				</div>
+			</p-panel>
+        </div>
+    </template>
+</p-dataGrid>
+<!-- 
+<div class="container">
+	<div class="row" style="margin-bottom: 20px;">
+		<div class="col-sm-4" >
+			<div *ngFor="let listing of listings">
+			<p-panel header="{{listing.street}} {{listing.city}} {{listing.zipCode}}">
+				<strong>${{listing.price}}</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		</div>
+	</div>
+</div>
+ -->
+<!--  
+<div class="container">
+	<div class="row" style="margin-bottom: 20px;">
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+	</div>
+	<div class="row"  style="margin-bottom: 20px;">
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 20px;">
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+		<div class="col-sm-4" >
+			<p-panel header="534 Queen St. Philadelphia, PA">
+				<strong>$500,000</strong>
+			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+				<div style="text-align: center">Single Family Home</div>
+				<div style="text-align: center">
+					<strong>3</strong> bd | 
+					<strong>2.5</strong> ba | 
+					<strong>1700</strong> sq ft
+				</div>
+			</p-panel>
+		</div>
+	</div>
+</div>-->

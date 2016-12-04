@@ -1,0 +1,20 @@
+.inputdiv {
+	padding-bottom: 20px;
+}
+
+.topbar {
+	background: rgba(0, 0, 0, 0.7);
+	height: 20px;
+}
+
+.sidebar {
+	border-right: 1px gray solid;
+	border-bottom: 1px gray solid;
+	box-shadow: 3px 3px 2px #eeeeee;
+	height: 100%;
+}
+
+.homeinfo {
+	font-size: 26px;
+	font-weight: 400;
+}
