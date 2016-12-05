@@ -1,26 +1,30 @@
 export class ListingDetailDto {
-  private _street: string;
-  private _city: string;
-  private _state: string;
-  private _zipCode: string;
-  private _houseType: string;
-  private _bedrooms: number;
-  private _bathrooms: number;
-  private _squareFeet: number;
-  private _overview: string;
-  private _masterBedroom: string;
-  private _fullBathrooms: number;
-  private _halfBathrooms: number;
-  private _diningKitchen: string;
-  private _diningRoom: boolean;
-  private _exteriorFeatures: string[];
-  private _otherRooms: string[];
-  private _stories: number;
-  private _exterior: string;
-  private _parking: string;
 
-  constructor() { }
+  public static fromJson(data: any): ListingDetailDto {
+        return new ListingDetailDto(data._id, data._street, data._city,
+            data._state, data._zipCode, data._houseType, data._bedrooms,
+            data._bathrooms, data._squareFeet, data._overview, data._masterBedroom,
+            data._fullBathrooms, data._halfBathrooms, data._diningKitchen,
+            data._diningRoom, data._exteriorFeatures, data._otherRooms,
+            data._stories, data._exterior, data._parking, data._price, data._mainPhoto, data._photos);
+    }
 
+  constructor(private _id: number, private _street: string, private _city: string, private _state: string,
+      private _zipCode: string, private _houseType: string, private _bedrooms: number, private _bathrooms: number,
+      private _squareFeet: number, private _overview: string, private _masterBedroom: string,
+      private _fullBathrooms: number, private _halfBathrooms: number, private _diningKitchen: boolean,
+      private _diningRoom: boolean, private _exteriorFeatures: string[], private _otherRooms: string[],
+      private _stories: number, private _exterior: string, private _parking: string, private _price: number,
+      private _mainPhoto: string, private _photos: string[]) { }
+
+  get id(): number {
+    return this._id;
+  }
+
+  set id(id: number) {
+    this._id = id;
+  }
+  
   get street(): string {
     return this._street;
   }
@@ -117,11 +121,11 @@ export class ListingDetailDto {
     this._halfBathrooms = halfBathrooms;
   }
 
-  get diningKitchen(): string {
+  get diningKitchen(): boolean {
     return this._diningKitchen;
   }
 
-  set diningKitchen(diningKitchen: string) {
+  set diningKitchen(diningKitchen: boolean) {
     this._diningKitchen = diningKitchen;
   }
 
@@ -171,5 +175,29 @@ export class ListingDetailDto {
 
   set parking(parking: string) {
     this._parking = parking;
+  }
+
+  get price(): number {
+    return this._price;
+  }
+
+  set price(price: number) {
+    this._price = price;
+  }
+
+  get mainPhoto(): string {
+    return this._mainPhoto;
+  }
+
+  set mainPhoto(mainPhoto: string) {
+    this._mainPhoto = mainPhoto;
+  }
+
+  get photos(): string[] {
+    return this._photos;
+  }
+
+  set photos(photos: string[]) {
+    this._photos = photos;
   }
 }

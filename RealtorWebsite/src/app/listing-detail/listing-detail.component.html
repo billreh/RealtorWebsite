@@ -1,11 +1,12 @@
 <div class="container">
-	<div class="row">
+	<div class="row sidebar">
 		<div class="col-lg-12 topbar"></div>
 		<div class="col-lg-8" style="padding-left: 0">
-			<img src="img/slide-1.jpg" style="width: 100%;">
+			<img src="img/{{listingDetail.id}}/{{listingDetail.mainPhoto}}" style="width: 100%;">
 		</div>
-		<div class="col-lg-4 sidebar">
-			<h3>Tell me more about this property</h3>
+		<div class="col-lg-4">
+			<h3 style="padding-top: 20px;">Tell me more about this property</h3>
+			<div style="height: 30px;"></div>
 			<div class="inputdiv">
 				<input pInputText type="text" placeholder="Full Name" size="30" />
 			</div>
@@ -16,32 +17,33 @@
 				<input pInputText type="tel" placeholder="Phone (optional)" size="30" />
 			</div>
 			<div class="inputdiv">
-				<textarea rows="4" cols="30" pInputTextarea></textarea>
+				<textarea rows="4" cols="32" pInputTextarea>I'm interested in {{listingDetail.street}}</textarea>
 			</div>
-			<button pButton type="button" label="Contact Agent"></button>
+			<div class="inputdiv">
+				<button pButton type="button" label="Contact Agent"></button>
+			</div>
 			<div style="padding-bottom: 30px"></div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-4">
-			<span class="homeinfo">534 Queen St.</span>
-		</div>
-		<div class="col-lg-4">
-			<span class="homeinfo" style="float: right">$500,000</span>
+		<div class="col-lg-8">
+			<span class="homeinfo">{{listingDetail.street}}</span>
+			<span class="homeinfo" style="float: right">{{listingDetail.price | currency}}</span>
 		</div>
 		<div class="col-lg-4">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-8">
-			<div style="padding-bottom: 10px;">Philadelphia, PA 19147</div>
+			<div style="padding-bottom: 10px;">{{listingDetail.city}}, {{listingDetail.state}} {{listingDetail.zipCode}}</div>
 		</div>
 		<div class="col-lg-4">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-8" style="padding-bottom: 10px;">
-			<span><strong>3</strong> beds <strong>2.5</strong> baths <strong>1700</strong> sq ft</span>
+			<span><strong>{{listingDetail.bedrooms}}</strong> beds <strong>{{listingDetail.bathrooms}}</strong>
+			baths <strong>{{listingDetail.squareFeet}}</strong> sq ft</span>
 		</div>
 		<div class="col-lg-4">
 			<button pButton type="button" label="Watch this Listing"></button>
@@ -49,7 +51,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
-			<h1>Property Details for 534 Queen St.</h1>
+			<h1>Property Details for {{listingDetail.street}}</h1>
 		</div>
 	</div>
 	<hr>
@@ -58,19 +60,21 @@
 			<span><strong>Overview</strong></span>
 		</div>
 		<div class="col-lg-10">
-		<p>Bella Vista unit in a great location and conveniently located to shopping, restaurants, businesses and so much more !
-		 This is a bright 1 bedroom 1.5 bath bi-level condo with nice counter space, stainless steel appliances, and lot's of cabinets.
-		  Laundry area, open living room space, powder room, and high ceilings, all with a bedroom with plenty of closets.
-		</p>
+		<p>{{listingDetail.overview}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2" style="padding-bottom: 10px;">
+		</div>
 		<div class="col-lg-5">
 			<strong>Key Facts</strong>
 			<hr>
 			<ul>
 				<li>Style: Traditional</li>
-				<li>Single Family Home</li>
+				<li>{{listingDetail.houseType}}</li>
 				<li>Year built: 1920</li>
-				<li>Price/Sq Ft: $345</li>
-				<li>Status: Active</li>
+				<li>Price/Sq Ft: ${{(listingDetail.price / listingDetail.squareFeet).toFixed(0)}}</li>
+				<li>Status: {{listingDetail.status}}</li>
 			</ul>
 		</div>
 		<div class="col-lg-5">
@@ -81,7 +85,6 @@
 			</ul>
 		</div>
 	</div>
-	</div>
 	<hr>
 	<div class="row">
 		<div class="col-lg-2" style="padding-bottom: 10px;">
@@ -91,40 +94,39 @@
 			<strong>Bedrooms</strong>
 			<hr>
 			<ul>
-				<li>Bedrooms: 3</li>
-				<li>Master Bedroom: 3rd Floor</li>
+				<li>Bedrooms: {{listingDetail.bedrooms}}</li>
+				<li>Master Bedroom: {{listingDetail.masterBedroom}}</li>
 			</ul>
 		</div>
 		<div class="col-lg-5">
 			<strong>Bathrooms</strong>
 			<hr>
 			<ul>
-				<li>Full Bathrooms: 2</li>
-				<li>Half Bathrooms: 1</li>
+				<li>Full Bathrooms: {{listingDetail.fullBathrooms}}</li>
+				<li>Half Bathrooms: {{listingDetail.halfBathrooms}}</li>
 			</ul>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="padding-top: 20px;">
 		<div class="col-lg-2" style="padding-bottom: 10px;">
 		</div>
 		<div class="col-lg-5">
 			<strong>Kitchen and Dining</strong>
 			<hr>
 			<ul>
-				<li>Dining Kitchen: Eat In Kitchen</li>
-				<li>Dining Room: Yes</li>
+				<li>Dining Kitchen: {{listingDetail.diningKitchen === true ? "Yes" : "No"}}</li>
+				<li>Dining Room: {{listingDetail.diningRoom === true ? "Yes" : "No"}}</li>
 			</ul>
 		</div>
 		<div class="col-lg-5">
 			<strong>Exterior and Lot Features</strong>
 			<hr>
 			<ul>
-				<li>Sidewalks</li>
-				<li>Streetlights</li>
+				<li *ngFor="let feature of listingDetail.exteriorFeatures">{{feature}}</li>
 			</ul>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="padding-top: 20px;">
 		<div class="col-lg-2" style="padding-bottom: 10px;">
 		</div>
 		<div class="col-lg-10">
@@ -137,16 +139,14 @@
 		</div>
 		<div class="col-lg-5">
 			<ul>
-				<li>Laundry: Basement</li>
-				<li>Living Room</li>
-				<li>Front Room</li>
+				<li *ngFor="let room of listingDetail.otherRooms">{{room}}</li>
 			</ul>
 		</div>
 		<div class="col-lg-5">
 			<ul>
-				<li>Stories: 3</li>
-				<li>Exterior: Brick</li>
-				<li>Parking: Street</li>
+				<li>Stories: {{listingDetail.stories}}</li>
+				<li>Exterior: {{listingDetail.exterior}}</li>
+				<li>Parking: {{listingDetail.parking}}</li>
 			</ul>
 		</div>
 	</div>

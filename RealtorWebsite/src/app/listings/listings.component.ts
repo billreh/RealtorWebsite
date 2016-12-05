@@ -19,8 +19,8 @@ export class ListingsComponent implements OnInit {
   ngOnInit() {
   }
 
-  detail() {
-    this._router.navigate(['app-listing-detail']);
+  detail(listing: ListingListDto) {
+    this._router.navigate(['app-listing-detail', listing.id]);
   }
 
   get listings(): Array<ListingListDto> {

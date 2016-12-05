@@ -6,7 +6,7 @@
        	 <div style="padding:3px" class="ui-g-12 ui-md-4">
 			<p-panel header="{{listing.street}} {{listing.city}} {{listing.zipCode}}">
 				<div style="text-align: center"><strong>${{listing.price}}</strong></div>
-			 	<img src="img/slide-1.jpg" style="max-width: 100%; cursor: pointer;" (click)="detail()">
+			 	<img src="img/{{listing.id}}/{{listing.mainPhoto}}" style="max-width: 100%; cursor: pointer;" (click)="detail(listing)">
 				<div style="text-align: center">{{listing.houseType}}</div>
 				<div style="text-align: center">
 					<strong>{{listing.bedrooms}}</strong> bd | 

@@ -12,6 +12,10 @@ import { ListingDetailComponent } from './listing-detail/listing-detail.componen
 import {PanelModule, InputTextModule, ButtonModule, InputTextareaModule,
         DataGridModule, DataListModule} from 'primeng/primeng';
 import {ListingService} from './listings/listing.service';
+import {ListingDetailService} from './listing-detail/listing-detail.service';
+import {ListingDetailResolver} from './listing-detail/listing-detail-resolver';
+import { CurrencyPipe } from './currency.pipe';
+import {ListingDetailDto} from './listing-detail/listing-detail-dto';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import {ListingService} from './listings/listing.service';
     HomeComponent,
     ListingsComponent,
     MyListingsComponent,
-    ListingDetailComponent
+    ListingDetailComponent,
+    CurrencyPipe
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import {ListingService} from './listings/listing.service';
     DataGridModule,
     DataListModule
   ],
-  providers: [ListingService],
+  providers: [ListingService, ListingDetailService, ListingDetailResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,12 +3,12 @@ export class ListingListDto {
   public static fromJson(data: any): ListingListDto {
         return new ListingListDto(data._id, data._street, data._city,
             data._state, data._zipCode, data._houseType, data._bedrooms,
-            data._bathrooms, data._squareFeet, data._price);
+            data._bathrooms, data._squareFeet, data._price, data._mainPhoto, data._photos);
     }
 
   constructor(private _id: number, private _street: string, private _city: string, private _state: string,
       private _zipCode: string, private _houseType: string, private _bedrooms: number, private _bathrooms: number,
-      private _squareFeet: number, private _price: number) { }
+      private _squareFeet: number, private _price: number, private _mainPhoto: string, private _photos: string[]) { }
 
 
   get id(): number {
@@ -89,5 +89,21 @@ export class ListingListDto {
 
   set price(price: number) {
     this._price = price;
+  }
+
+  get mainPhoto(): string {
+    return this._mainPhoto;
+  }
+
+  set mainPhoto(mainPhoto: string) {
+    this._mainPhoto = mainPhoto;
+  }
+
+  get photos(): string[] {
+    return this._photos;
+  }
+
+  set photos(photos: string[]) {
+    this._photos = photos;
   }
 }
