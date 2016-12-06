@@ -22,8 +22,18 @@
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/scrolling-nav.js"></script>
     
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+  
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 3000
+    })
+  });
+</script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="overflow: none;">
   <app-root>Loading...</app-root>

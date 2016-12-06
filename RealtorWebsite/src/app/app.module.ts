@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
@@ -10,7 +10,7 @@ import { ListingsComponent } from './listings/listings.component';
 import { MyListingsComponent } from './listings/my-listings.component';
 import { ListingDetailComponent } from './listing-detail/listing-detail.component';
 import {PanelModule, InputTextModule, ButtonModule, InputTextareaModule,
-        DataGridModule, DataListModule} from 'primeng/primeng';
+        DataGridModule, DataListModule, GrowlModule} from 'primeng/primeng';
 import {ListingService} from './listings/listing.service';
 import {ListingDetailService} from './listing-detail/listing-detail.service';
 import {ListingDetailResolver} from './listing-detail/listing-detail-resolver';
@@ -29,6 +29,7 @@ import {ListingDetailDto} from './listing-detail/listing-detail-dto';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule,
     routing,
@@ -37,7 +38,8 @@ import {ListingDetailDto} from './listing-detail/listing-detail-dto';
     InputTextareaModule,
     ButtonModule,
     DataGridModule,
-    DataListModule
+    DataListModule,
+    GrowlModule
   ],
   providers: [ListingService, ListingDetailService, ListingDetailResolver],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {ListingDetailDto} from './listing-detail-dto';
+import {ContactAgentDto} from './contact-agent-dto';
+import {ServerResponse} from '../server-response';
 
 @Injectable()
 export class ListingDetailService {
@@ -15,12 +17,20 @@ export class ListingDetailService {
         .map( (listing: any) => {
           let result: ListingDetailDto;
           if (listing) {
-            console.log('listing: ' + listing);
             result = ListingDetailDto.fromJson(listing);
-            console.log('result: ' + result);
           }
           return result;
         }).catch(this.handleError);
+  }
+
+  contactAgent(contactInfo: ContactAgentDto): Observable<ServerResponse> {
+    let endpoint_url = 'http://localhost:8080/Realtor/rest/contact-agent';
+    let body = JSON.stringify(contactInfo);
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.post(endpoint_url, body, options).map(res => res.json())
+            .map((data: any) => ServerResponse.fromJson(data));
   }
 
   handleError(error: Response): Observable<any> {

@@ -12,6 +12,8 @@
 
 .img-with-text {
 	position: relative;
+	max-height: 500px;
+	width: 100%;
 }
 
 .text-overlay {

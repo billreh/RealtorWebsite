@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.ui-growl {
+    position:absolute;
+    top:10%;
+    z-index:9999;
+}

@@ -6,7 +6,8 @@ export class ListingDetailDto {
             data._bathrooms, data._squareFeet, data._overview, data._masterBedroom,
             data._fullBathrooms, data._halfBathrooms, data._diningKitchen,
             data._diningRoom, data._exteriorFeatures, data._otherRooms,
-            data._stories, data._exterior, data._parking, data._price, data._mainPhoto, data._photos);
+            data._stories, data._exterior, data._parking, data._price, data._mainPhoto, data._photos,
+            data._status, data._style, data._yearBuilt, data._schoolDistrict);
     }
 
   constructor(private _id: number, private _street: string, private _city: string, private _state: string,
@@ -15,7 +16,8 @@ export class ListingDetailDto {
       private _fullBathrooms: number, private _halfBathrooms: number, private _diningKitchen: boolean,
       private _diningRoom: boolean, private _exteriorFeatures: string[], private _otherRooms: string[],
       private _stories: number, private _exterior: string, private _parking: string, private _price: number,
-      private _mainPhoto: string, private _photos: string[]) { }
+      private _mainPhoto: string, private _photos: string[], private _status: string, private _style: string,
+      private _yearBuilt: number, private _schoolDistrict: string) { }
 
   get id(): number {
     return this._id;
@@ -24,7 +26,7 @@ export class ListingDetailDto {
   set id(id: number) {
     this._id = id;
   }
-  
+
   get street(): string {
     return this._street;
   }
@@ -199,5 +201,37 @@ export class ListingDetailDto {
 
   set photos(photos: string[]) {
     this._photos = photos;
+  }
+
+  get status(): string {
+    return this._status;
+  }
+
+  set status(status: string) {
+    this._status = status;
+  }
+
+  get style(): string {
+    return this._style;
+  }
+
+  set style(style: string) {
+    this._style = style;
+  }
+
+  get yearBuilt(): number {
+    return this._yearBuilt;
+  }
+
+  set yearBuilt(yearBuilt: number) {
+    this._yearBuilt = yearBuilt;
+  }
+
+  get schoolDistrict(): string {
+    return this._schoolDistrict;
+  }
+
+  set schoolDistrict(schoolDistrict: string) {
+    this._schoolDistrict = schoolDistrict;
   }
 }
