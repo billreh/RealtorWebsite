@@ -9,7 +9,7 @@ export class ListingService {
   constructor(private http: Http) { }
 
   getListingList(): Observable<Array<ListingListDto>> {
-    let url = 'http://localhost:8080/Realtor/rest/listings';
+    let url = 'http://localhost:8080/RealtorBackend/rest/listings';
 
     return this.http.get(url, {method: 'Get'}).map( (res) => res.json())
         .map( (listings: Array<any>) => {

@@ -11,7 +11,7 @@ export class ListingDetailService {
   constructor(private http: Http) { }
 
   getListingDetail(id: number): Observable<ListingDetailDto> {
-    let url = 'http://localhost:8080/Realtor/rest/listing-detail?id=' + id;
+    let url = 'http://localhost:8080/RealtorBackend/rest/listing-detail?id=' + id;
 
     return this.http.get(url, {method: 'Get'}).map( (res) => res.json())
         .map( (listing: any) => {
@@ -19,12 +19,13 @@ export class ListingDetailService {
           if (listing) {
             result = ListingDetailDto.fromJson(listing);
           }
+          console.log(result);
           return result;
         }).catch(this.handleError);
   }
 
   contactAgent(contactInfo: ContactAgentDto): Observable<ServerResponse> {
-    let endpoint_url = 'http://localhost:8080/Realtor/rest/contact-agent';
+    let endpoint_url = 'http://localhost:8080/RealtorBackend/rest/contact-agent';
     let body = JSON.stringify(contactInfo);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
