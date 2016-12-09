@@ -21,17 +21,11 @@
                     <li>
                         <a routerLink="app-listings">Listings</a>
                     </li>
-                    <li>
-                        <a routerLink="app-my-listings">My Listings</a>
-                    </li>
                     <template [ngIf]="isHome()">
                     <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     </template>
-                    <li>
-                        <a href="#" (click)="doIt()">Login</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
