@@ -16,6 +16,7 @@ import {ListingDetailService} from './listing-detail/listing-detail.service';
 import {ListingDetailResolver} from './listing-detail/listing-detail-resolver';
 import { CurrencyPipe } from './currency.pipe';
 import {ListingDetailDto} from './listing-detail/listing-detail-dto';
+import {FeaturedListingService} from './home/featured-listing.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import {ListingDetailDto} from './listing-detail/listing-detail-dto';
     DataListModule,
     GrowlModule
   ],
-  providers: [ListingService, ListingDetailService, ListingDetailResolver],
+  providers: [ListingService, ListingDetailService, ListingDetailResolver, FeaturedListingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
