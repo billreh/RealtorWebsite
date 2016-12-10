@@ -14,16 +14,20 @@ import {ContactAgentDto} from './contact-agent-dto';
 export class ListingDetailComponent {
   private _listingDetail: ListingDetailDto;
   msgs: Message[] = [];
+  images: any[];
   theForm: FormGroup;
 
   constructor(private _route: ActivatedRoute, private _listingDetailService: ListingDetailService, fb: FormBuilder) {
     this._listingDetail = this._route.snapshot.data['_listingDetail'];
+    this.images = [];
     this.theForm = fb.group({
       'theName': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
       'theEmail': [null, Validators.compose([Validators.required, Validators.pattern('.*@.*\..*')])],
       'thePhone': '',
       'theMessage': ['I\'m interested in ' + this._listingDetail.street, Validators.required]
     });
+    this.images.push({source: 'img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto, alt: this._listingDetail.mainPhoto});
+    this._listingDetail.photos.forEach(photo => this.images.push({source:'img/' + this._listingDetail.id + '/' + photo, alt: photo}));
   }
 
   submitForm(value: any) {

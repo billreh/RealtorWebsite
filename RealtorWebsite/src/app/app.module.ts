@@ -10,7 +10,8 @@ import { ListingsComponent } from './listings/listings.component';
 import { MyListingsComponent } from './listings/my-listings.component';
 import { ListingDetailComponent } from './listing-detail/listing-detail.component';
 import {PanelModule, InputTextModule, ButtonModule, InputTextareaModule,
-        DataGridModule, DataListModule, GrowlModule} from 'primeng/primeng';
+        DataGridModule, DataListModule, GrowlModule,
+        GalleriaModule} from 'primeng/primeng';
 import {ListingService} from './listings/listing.service';
 import {ListingDetailService} from './listing-detail/listing-detail.service';
 import {ListingDetailResolver} from './listing-detail/listing-detail-resolver';
@@ -40,7 +41,8 @@ import {FeaturedListingService} from './home/featured-listing.service';
     ButtonModule,
     DataGridModule,
     DataListModule,
-    GrowlModule
+    GrowlModule,
+    GalleriaModule
   ],
   providers: [ListingService, ListingDetailService, ListingDetailResolver, FeaturedListingService],
   bootstrap: [AppComponent]
