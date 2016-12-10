@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ListingDetailService} from './listing-detail.service';
 import {ListingDetailDto} from './listing-detail-dto';
 import {FormsModule, FormGroup, FormBuilder, Validators} from '@angular/forms';
@@ -14,20 +14,24 @@ import {ContactAgentDto} from './contact-agent-dto';
 export class ListingDetailComponent {
   private _listingDetail: ListingDetailDto;
   msgs: Message[] = [];
-  images: any[];
+  photos: string[];
   theForm: FormGroup;
 
-  constructor(private _route: ActivatedRoute, private _listingDetailService: ListingDetailService, fb: FormBuilder) {
+  constructor(private _route: ActivatedRoute, private _listingDetailService: ListingDetailService, fb: FormBuilder,
+        private _router: Router) {
     this._listingDetail = this._route.snapshot.data['_listingDetail'];
-    this.images = [];
+    this.photos = [];
     this.theForm = fb.group({
       'theName': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
       'theEmail': [null, Validators.compose([Validators.required, Validators.pattern('.*@.*\..*')])],
       'thePhone': '',
       'theMessage': ['I\'m interested in ' + this._listingDetail.street, Validators.required]
     });
-    this.images.push({source: 'img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto, alt: this._listingDetail.mainPhoto});
-    this._listingDetail.photos.forEach(photo => this.images.push({source:'img/' + this._listingDetail.id + '/' + photo, alt: photo}));
+    this.photos.push('img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto);
+    this._listingDetail.photos.forEach(photo => this.photos.push('img/' + this._listingDetail.id + '/' + photo));
+    this._router.events.subscribe(() => {
+      window.scrollTo(0, 0);
+    });
   }
 
   submitForm(value: any) {
