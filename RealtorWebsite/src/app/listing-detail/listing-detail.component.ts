@@ -29,9 +29,9 @@ export class ListingDetailComponent {
     });
     this.photos.push('img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto);
     this._listingDetail.photos.forEach(photo => this.photos.push('img/' + this._listingDetail.id + '/' + photo));
-    this._router.events.subscribe(() => {
+    if(this._router.navigated) {
       window.scrollTo(0, 0);
-    });
+    }
   }
 
   submitForm(value: any) {
@@ -55,6 +55,9 @@ export class ListingDetailComponent {
   }
 
   get listingDetail(): ListingDetailDto {
+    this._router.events.subscribe(() => {
+      window.scrollTo(0, 0);
+    }).unsubscribe();
     return this._listingDetail;
   }
 }
