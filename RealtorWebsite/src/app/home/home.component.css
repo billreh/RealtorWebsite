@@ -6,11 +6,14 @@
 }
 
 @media only screen and (max-width: 340px) {
+	.intro-image {
 		width: 100%;
-		position: absolute;
+		position: relative;
 		left: 0px;
 		top: 0px;
 		margin-bottom: 100px;
+		padding-top: 100px;
+	}
 }
 
 .about-section {
