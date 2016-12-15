@@ -6,3 +6,25 @@ li {
 	list-style-type: none;
 	display: inline;
 }
+
+.spinner {
+  float: right;
+}
+
+@media only screen and (max-width: 340px) {
+  .spinner {
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 340px) and (max-width: 600px){
+  .spinner {
+    float: right;
+  }
+}
+
+@media only screen and (min-width: 1040px) and (max-width: 1155px){
+  .spinner {
+    float: none;
+  }
+}

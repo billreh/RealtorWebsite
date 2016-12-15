@@ -22,13 +22,13 @@
       <div class="inputdiv form-group ui-g-12 ui-md-6 ui-lg-4"
            [ngClass]="{'has-error':!form.controls['bedrooms'].valid && form.controls['bedrooms'].touched}">
         Minimum Bedrooms:
-        <p-spinner formControlName="bedrooms"></p-spinner>
+        <span class="spinner"><p-spinner formControlName="bedrooms" size="10"></p-spinner></span>
         <div *ngIf="form.controls['bedrooms'].hasError('pattern') && form.controls['bedrooms'].touched" class="alert alert-danger">Minimum bedrooms must be between 1 and 9</div>
       </div>
       <div class="inputdiv form-group ui-g-12 ui-md-6 ui-lg-4"
            [ngClass]="{'has-error':!form.controls['bathrooms'].valid && form.controls['bathrooms'].touched}">
         Minimum Bathrooms:
-        <p-spinner formControlName="bathrooms" step="0.5"></p-spinner>
+        <span class="spinner"><p-spinner formControlName="bathrooms" size="10" step="0.5"></p-spinner></span>
         <div *ngIf="form.controls['bathrooms'].hasError('pattern') && form.controls['bathrooms'].touched" class="alert alert-danger">Minimum bathrooms must be between 1 and 9</div>
       </div>
       <div class="inputdiv form-group ui-g-12 ui-md-6 ui-lg-4"
