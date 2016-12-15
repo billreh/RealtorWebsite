@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ListingDetailService} from './listing-detail.service';
 import {ListingDetailDto} from './listing-detail-dto';
-import {FormsModule, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Message} from 'primeng/primeng';
 import {ContactAgentDto} from './contact-agent-dto';
 

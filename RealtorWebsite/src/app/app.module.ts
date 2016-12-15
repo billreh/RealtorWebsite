@@ -11,7 +11,7 @@ import { MyListingsComponent } from './listings/my-listings.component';
 import { ListingDetailComponent } from './listing-detail/listing-detail.component';
 import {PanelModule, InputTextModule, ButtonModule, InputTextareaModule,
         DataGridModule, DataListModule, GrowlModule,
-        GalleriaModule} from 'primeng/primeng';
+        GalleriaModule, SpinnerModule} from 'primeng/primeng';
 import {ListingService} from './listings/listing.service';
 import {ListingDetailService} from './listing-detail/listing-detail.service';
 import {ListingDetailResolver} from './listing-detail/listing-detail-resolver';
@@ -42,7 +42,8 @@ import {FeaturedListingService} from './home/featured-listing.service';
     DataGridModule,
     DataListModule,
     GrowlModule,
-    GalleriaModule
+    GalleriaModule,
+    SpinnerModule
   ],
   providers: [ListingService, ListingDetailService, ListingDetailResolver, FeaturedListingService],
   bootstrap: [AppComponent]
