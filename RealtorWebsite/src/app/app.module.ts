@@ -16,8 +16,9 @@ import {ListingService} from './listings/listing.service';
 import {ListingDetailService} from './listing-detail/listing-detail.service';
 import {ListingDetailResolver} from './listing-detail/listing-detail-resolver';
 import { CurrencyPipe } from './currency.pipe';
-import {ListingDetailDto} from './listing-detail/listing-detail-dto';
+import {CarouselComponent} from './carousel/carousel.component';
 import {FeaturedListingService} from './home/featured-listing.service';
+import {HomeFeaturedListingsResolver} from "./home/home-featured-listings.resolver";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FeaturedListingService} from './home/featured-listing.service';
     ListingsComponent,
     MyListingsComponent,
     ListingDetailComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import {FeaturedListingService} from './home/featured-listing.service';
     GalleriaModule,
     SpinnerModule
   ],
-  providers: [ListingService, ListingDetailService, ListingDetailResolver, FeaturedListingService],
+  providers: [ListingService, ListingDetailService, ListingDetailResolver, FeaturedListingService,
+    HomeFeaturedListingsResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

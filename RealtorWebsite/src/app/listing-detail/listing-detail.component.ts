@@ -5,6 +5,7 @@ import {ListingDetailDto} from './listing-detail-dto';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Message} from 'primeng/primeng';
 import {ContactAgentDto} from './contact-agent-dto';
+import '../../js/jquery.js';
 
 @Component({
   selector: 'app-listing-detail',
@@ -14,21 +15,25 @@ import {ContactAgentDto} from './contact-agent-dto';
 export class ListingDetailComponent {
   private _listingDetail: ListingDetailDto;
   msgs: Message[] = [];
-  photos: string[];
+  // photos: string[];
   theForm: FormGroup;
+  thePhotos: any[];
 
   constructor(private _route: ActivatedRoute, private _listingDetailService: ListingDetailService, fb: FormBuilder,
         private _router: Router) {
     this._listingDetail = this._route.snapshot.data['_listingDetail'];
-    this.photos = [];
+    // this.photos = [];
+    this.thePhotos = [];
     this.theForm = fb.group({
       'theName': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
       'theEmail': [null, Validators.compose([Validators.required, Validators.pattern('.*@.*\..*')])],
       'thePhone': '',
       'theMessage': ['I\'m interested in ' + this._listingDetail.street, Validators.required]
     });
-    this.photos.push('img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto);
-    this._listingDetail.photos.forEach(photo => this.photos.push('img/' + this._listingDetail.id + '/' + photo));
+    this.thePhotos.push({src: 'img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto, alt: 'photo'});
+    this._listingDetail.photos.forEach(photo => this.thePhotos.push({ src: 'img/' + this._listingDetail.id + '/' + photo}));
+    // this.photos.push('img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto);
+    // this._listingDetail.photos.forEach(photo => this.photos.push('img/' + this._listingDetail.id + '/' + photo));
     if(this._router.navigated) {
       window.scrollTo(0, 0);
     }

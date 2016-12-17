@@ -13,35 +13,38 @@ Welcome to Express Realty
 <div class="row">
 	<div class="box">
 		<div class="col-lg-12 text-center">
-			<div id="carousel-example-generic" class="carousel slide">
-				<!-- Indicators for slides -->
-				<ol class="carousel-indicators">
-					<template ngFor let-item [ngForOf]="featuredListingDtos" let-i="index">
-						<li *ngIf="i === 0" data-target="#carousel-example-generic" [attr.data-slide-to]="i" class="active"></li>
-						<li *ngIf="i !== 0" data-target="#carousel-example-generic" [attr.data-slide-to]="i"></li>
-					</template>
-			    </ol>
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<template ngFor let-item [ngForOf]="featuredListingDtos" let-i="index">
-					<div *ngIf="i === 0" class="item active">
-						<img class="img-responsive img-full img-with-text" src="img/{{item.id}}/{{item.mainPhoto}}" alt="Featured home">
-						<span class="text-overlay"><a routerLink="/app-listing-detail/{{item.id}}" fragment="top">View this home.</a></span>
-					</div>
-					<div *ngIf="i !== 0" class="item">
-						<img class="img-responsive img-full img-with-text" src="img/{{item.id}}/{{item.mainPhoto}}" alt="Featured home">
-						<span class="text-overlay"><a routerLink="/app-listing-detail/{{item.id}}">View this home.</a></span>
-					</div>
-					</template>
-				</div>
+			<!--<div id="carousel-example-generic" class="carousel slide">-->
+				<!--&lt;!&ndash; Indicators for slides &ndash;&gt;-->
+				<!--<ol class="carousel-indicators">-->
+					<!--<template ngFor let-item [ngForOf]="featuredListingDtos" let-i="index">-->
+						<!--<li *ngIf="i === 0" data-target="#carousel-example-generic" [attr.data-slide-to]="i" class="active"></li>-->
+						<!--<li *ngIf="i !== 0" data-target="#carousel-example-generic" [attr.data-slide-to]="i"></li>-->
+					<!--</template>-->
+			    <!--</ol>-->
+				<!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+				<!--<div class="carousel-inner">-->
+					<!--<template ngFor let-item [ngForOf]="featuredListingDtos" let-i="index">-->
+					<!--<div *ngIf="i === 0" class="item active">-->
+						<!--<img class="img-responsive img-full img-with-text" src="img/{{item.id}}/{{item.mainPhoto}}" alt="Featured home">-->
+						<!--<span class="text-overlay"><a routerLink="/app-listing-detail/{{item.id}}" fragment="top">View this home.</a></span>-->
+					<!--</div>-->
+					<!--<div *ngIf="i !== 0" class="item">-->
+						<!--<img class="img-responsive img-full img-with-text" src="img/{{item.id}}/{{item.mainPhoto}}" alt="Featured home">-->
+						<!--<span class="text-overlay"><a routerLink="/app-listing-detail/{{item.id}}">View this home.</a></span>-->
+					<!--</div>-->
+					<!--</template>-->
+				<!--</div>-->
 
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel-example-generic"
-					data-slide="prev"> <span class="icon-prev"></span>
-				</a> <a class="right carousel-control" href="#carousel-example-generic"
-					data-slide="next"> <span class="icon-next"></span>
-				</a>
-			</div>
+				<!--&lt;!&ndash; Controls &ndash;&gt;-->
+				<!--<a class="left carousel-control" href="#carousel-example-generic"-->
+					<!--data-slide="prev"> <span class="icon-prev"></span>-->
+				<!--</a> <a class="right carousel-control" href="#carousel-example-generic"-->
+					<!--data-slide="next"> <span class="icon-next"></span>-->
+				<!--</a>-->
+			<!--</div>-->
+
+      <carousel id="theCarousel" [photos]="photos" [dataInterval]="3000"></carousel>
+
 			<h1 class="brand-name">Featured Homes</h1>
 			<hr class="tagline-divider">
 		</div>
