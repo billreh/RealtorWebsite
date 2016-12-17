@@ -15,14 +15,12 @@ import '../../js/jquery.js';
 export class ListingDetailComponent {
   private _listingDetail: ListingDetailDto;
   msgs: Message[] = [];
-  // photos: string[];
   theForm: FormGroup;
   thePhotos: any[];
 
   constructor(private _route: ActivatedRoute, private _listingDetailService: ListingDetailService, fb: FormBuilder,
         private _router: Router) {
     this._listingDetail = this._route.snapshot.data['_listingDetail'];
-    // this.photos = [];
     this.thePhotos = [];
     this.theForm = fb.group({
       'theName': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
@@ -32,8 +30,6 @@ export class ListingDetailComponent {
     });
     this.thePhotos.push({src: 'img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto, alt: 'photo'});
     this._listingDetail.photos.forEach(photo => this.thePhotos.push({ src: 'img/' + this._listingDetail.id + '/' + photo}));
-    // this.photos.push('img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto);
-    // this._listingDetail.photos.forEach(photo => this.photos.push('img/' + this._listingDetail.id + '/' + photo));
     if(this._router.navigated) {
       window.scrollTo(0, 0);
     }
@@ -60,9 +56,6 @@ export class ListingDetailComponent {
   }
 
   get listingDetail(): ListingDetailDto {
-    this._router.events.subscribe(() => {
-      window.scrollTo(0, 0);
-    }).unsubscribe();
     return this._listingDetail;
   }
 }

@@ -7,37 +7,7 @@
 		<div class="col-lg-12 topbar"></div>
 		<div class="col-lg-8" style="padding-left: 0">
 
-			<!--<div id="carousel-example-generic" class="carousel slide">-->
-
-				<!--&lt;!&ndash; Indicators &ndash;&gt;-->
-				<!--<ol class="carousel-indicators">-->
-					<!--<template ngFor let-photo [ngForOf]="photos" let-i="index">-->
-						<!--<li *ngIf="i === 0" data-target="#carousel-example-generic" [attr.data-slide-to]="i" class="active"></li>-->
-						<!--<li *ngIf="i !== 0" data-target="#carousel-example-generic" [attr.data-slide-to]="i"></li>-->
-					<!--</template>-->
-			    <!--</ol>-->
-				<!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-				<!--<div class="carousel-inner">-->
-					<!--<template ngFor let-photo [ngForOf]="photos" let-i="index">-->
-					<!--<div *ngIf="i === 0" class="item active">-->
-						<!--<img class="img-responsive img-full img-with-text" src="{{photo}}" alt="Home Picture">-->
-					<!--</div>-->
-					<!--<div *ngIf="i !== 0" class="item">-->
-						<!--<img class="img-responsive img-full img-with-text" src="{{photo}}" alt="Home Picture">-->
-					<!--</div>-->
-					<!--</template>-->
-				<!--</div>-->
-
-				<!--&lt;!&ndash; Controls &ndash;&gt;-->
-				<!--<a class="left carousel-control" href="#carousel-example-generic"-->
-					<!--data-slide="prev"> <span class="icon-prev"></span>-->
-				<!--</a> <a class="right carousel-control" href="#carousel-example-generic"-->
-					<!--data-slide="next"> <span class="icon-next"></span>-->
-				<!--</a>-->
-			<!--</div>-->
-
       <carousel id="theCarousel" [photos]="thePhotos" [dataInterval]="false"></carousel>
-
 
 		</div>
 		<form [formGroup]="theForm" (ngSubmit)="submitForm(theForm.value)">
