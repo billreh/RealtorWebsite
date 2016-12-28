@@ -53,7 +53,8 @@
        	 <div style="padding:3px" class="ui-g-12 ui-md-4">
 			<p-panel header="{{listing.street}} {{listing.city}}, {{listing.state}} {{listing.zipCode}}">
 				<div style="text-align: center"><strong>${{listing.price}}</strong></div>
-			 	<img src="img/{{listing.id}}/{{listing.mainPhoto}}" style="max-width: 100%; cursor: pointer;" (click)="detail(listing)">
+			 	<img *ngIf="listing.mainPhoto === undefined || listing.mainPhoto === null" src="img/house.jpeg" style="max-width: 100%; cursor: pointer;" (click)="detail(listing)">
+        <img *ngIf="listing.mainPhoto !== null" src="img/{{listing.id}}/{{listing.mainPhoto}}" style="max-width: 100%; cursor: pointer;" (click)="detail(listing)">
 				<div style="text-align: center">{{listing.houseType}}</div>
 				<div style="text-align: center">
 					<strong>{{listing.bedrooms}}</strong> bd |

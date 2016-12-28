@@ -28,7 +28,11 @@ export class ListingDetailComponent {
       'thePhone': '',
       'theMessage': ['I\'m interested in ' + this._listingDetail.street, Validators.required]
     });
-    this.thePhotos.push({src: 'img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto, alt: 'photo'});
+    if(this._listingDetail.mainPhoto === undefined || this._listingDetail.mainPhoto === null || this._listingDetail.mainPhoto === '') {
+      this.thePhotos.push({src: 'img/house.jpeg', alt: 'photo'});
+    } else {
+      this.thePhotos.push({src: 'img/' + this._listingDetail.id + '/' + this._listingDetail.mainPhoto, alt: 'photo'});
+    }
     this._listingDetail.photos.forEach(photo => this.thePhotos.push({ src: 'img/' + this._listingDetail.id + '/' + photo}));
     if(this._router.navigated) {
       window.scrollTo(0, 0);
