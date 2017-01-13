@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <template [ngIf]="isHome()">
-	                <a class="navbar-brand page-scroll" href="#top"><i class="fa fa-home"></i> Home</a>
+	                <a class="navbar-brand page-scroll" pageScroll href="#top"><i class="fa fa-home"></i> Home</a>
                 </template>
                 <template [ngIf]="!isHome()">
 	                <a class="navbar-brand page-scroll" routerLink="app-home"><i class="fa fa-home"></i> Home</a>
@@ -25,12 +25,12 @@
                     </li>
                     <template [ngIf]="isHome()">
                     <li>
-                        <a class="page-scroll" href="#featured">Featured Homes</a>
+                        <a class="page-scroll" pageScroll href="#featured">Featured Homes</a>
                     </li>
                     </template>
                     <template [ngIf]="isHome()">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" pageScroll href="#about">About</a>
                     </li>
                     </template>
                     <li>

@@ -19,6 +19,7 @@ import { CurrencyPipe } from './currency.pipe';
 import {CarouselComponent} from './carousel/carousel.component';
 import {FeaturedListingService} from './home/featured-listing.service';
 import {HomeFeaturedListingsResolver} from "./home/home-featured-listings.resolver";
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {HomeFeaturedListingsResolver} from "./home/home-featured-listings.resolv
     DataListModule,
     GrowlModule,
     GalleriaModule,
-    SpinnerModule
+    SpinnerModule,
+    Ng2PageScrollModule.forRoot()
   ],
   providers: [ListingService, ListingDetailService, ListingDetailResolver, FeaturedListingService,
     HomeFeaturedListingsResolver],
